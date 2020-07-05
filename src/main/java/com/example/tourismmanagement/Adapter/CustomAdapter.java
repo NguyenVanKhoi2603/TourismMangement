@@ -2,7 +2,8 @@ package com.example.tourismmanagement.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;import android.view.ViewGroup;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,8 +26,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_province, parent, false);
+        //LayoutInflater inflater = LayoutInflater.from(context);
+        //View view = inflater.inflate(R.layout.row_province, parent, false);
+
+        View view = LayoutInflater.from(context).inflate(R.layout.row_province, parent, false);
         return new MyViewHolder(view);
     }
 
