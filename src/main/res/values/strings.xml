@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Tourism Management</string>
+    <string name="titleProduce">Quản lý Tour</string>
+    <string name="add">Thêm</string>
+    <string name="delete">Xoá</string>
+    <string name="update">Sửa/Cập nhật</string>
+    <string name="customer">Khách hàng</string>
+    <string name="province">Tỉnh</string>
+    <string name="tourist_attraction">Địa điểm du lịch</string>
+    <string name="choose_place">chọn địa điểm</string>
+    <string name="full_name">Họ Tên</string>
+    <string name="date_of_birth">Ngày sinh</string>
+    <string name="sex">Giới tính</string>
+    <string name="customers_code">Mã khách hàng</string>
+    <string name="note">Ghi chú</string>
+    <string name="vehicle">Phương tiện</string>
+    <string name="number_of_days">Số ngày</string>
+    <string name="number_of_nights">Số đêm</string>
+    <string name="departure_day">Ngày khởi hành</string>
+    <string name="gmail">Gmail</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="address">Địa chỉ</string>
+    <string name="save">Lưu</string>
+    <string name="log_out">Đăng xuất</string>
+    <string name="notification">Thông báo</string>
+    <string name="do_you_want_to_exit">bạn có muốn thoát không?</string>
+    <string name="tour">Tour</string>
+    <string name="addprovince">Thêm tỉnh</string>
+    <string name="province_code">Mã tỉnh</string>
+    <string name="province_name">Tên Tỉnh</string>
+    <string name="religion">Vùng miền</string>
+    <string name="northern">Miền bắc</string>
+    <string name="central">Miền Trung</string>
+    <string name="southward">Miền Nam</string>
+    <string name="set_error_edittext_empty">Vui lòng nhập trường này!</string>
+</resources>

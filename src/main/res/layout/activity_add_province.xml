@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InterFace.AddProvinceActivity">
+
+    <TextView
+        style="@style/s_title_produce"
+        android:text="@string/addprovince"></TextView>
+
+    <EditText
+        android:id="@+id/editText_p_code"
+        style="@style/s_editText"
+        android:hint="@string/province_code"></EditText>
+
+
+    <EditText
+        android:id="@+id/editText_p_name"
+        style="@style/s_editText"
+        android:hint="@string/province_name"></EditText>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        style="@style/s_title_context"
+        android:text="@string/religion"></TextView>
+
+    <Spinner
+        android:id="@+id/spinner_p_religion"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></Spinner>
+
+    <Button
+        android:id="@+id/btn_add_province"
+        style="@style/s_buttonBasic"
+        android:text="@string/add"></Button>
+
+</LinearLayout>

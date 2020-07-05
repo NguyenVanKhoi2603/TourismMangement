@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InterFace.MainActivity">
+
+
+        <TextView
+            style="@style/s_title_produce"
+            android:text="@string/titleProduce"></TextView>
+
+
+
+    <LinearLayout style="@style/s_vertical">
+
+        <Button
+            android:id="@+id/btnMain_tour"
+            style="@style/s_buttonM"
+            android:text="@string/tour"></Button>
+
+        <Button
+            android:id="@+id/btnMain_Customer"
+            style="@style/s_buttonM"
+            android:text="@string/customer"></Button>
+
+        <Button
+            android:id="@+id/btnMain_Tourist_attraction"
+            style="@style/s_buttonM"
+            android:text="@string/tourist_attraction"></Button>
+
+        <Button
+            android:id="@+id/btnMain_Province"
+            style="@style/s_buttonM"
+            android:text="@string/province"></Button>
+
+
+    </LinearLayout>
+
+</LinearLayout>
