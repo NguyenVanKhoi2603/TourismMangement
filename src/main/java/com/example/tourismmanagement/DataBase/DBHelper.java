@@ -12,8 +12,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        //String sql = "Create table Customers (customer_code text, customer_name text, customer_numberphone text, customer_dayofbirth text, customer_gmail text, customer_address text)";
-        //sqLiteDatabase.execSQL(sql);
+        String sqlCustomer = "Create table Customers (customer_code text, customer_name text, customer_sex text, customer_dayofbirth text, customer_numberphone text, customer_gmail text, customer_address text)";
+        sqLiteDatabase.execSQL(sqlCustomer);
         String sqlProvince = "Create table Provinces (province_code text, province_name text, province_regions text)";
         sqLiteDatabase.execSQL(sqlProvince);
     }

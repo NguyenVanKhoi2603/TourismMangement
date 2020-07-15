@@ -42,13 +42,52 @@ public class DBProvince {
         return data;
     }
 
-    public void deleteProvince(ProvinceModel province) {
+    public ArrayList<ProvinceModel> getDataByCode(String code)
+    {
+        ArrayList<ProvinceModel>data = new ArrayList<>();
+        String sql = "Select * from Provinces where province_code = '"+ code +"'";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        try {
+            cursor.moveToFirst();
+            do {
+                ProvinceModel provinceModel = new ProvinceModel();
+                provinceModel.setP_code(cursor.getString(0));
+                provinceModel.setP_name(cursor.getString(1));
+                provinceModel.setP_regions(cursor.getString(2));
+                data.add(provinceModel);
+            }
+            while (cursor.moveToNext());
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return data;
+    }
+
+    public void deleteProvince(String province) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("province_code", province.getP_code());
+//        values.put("province_code", province.getP_code());
+//        values.put("province_name", province.getP_name());
+//        values.put("province_regions", province.getP_regions());
+        db.delete("Provinces", "province_code = '" + province + "'", null);
+        db.close();
+    }
+
+    public void updateProvince(ProvinceModel province) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        //values.put("province_code", province.getP_code());
         values.put("province_name", province.getP_name());
         values.put("province_regions", province.getP_regions());
-        db.delete("Provinces", "province_code = '" + province.getP_code() + "'", null);
+        db.update("Provinces", values,"province_code ='" + province.getP_code() + "'", null);
+        //db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(student.getId()) });
+
+        db.close();
     }
+
 
 }

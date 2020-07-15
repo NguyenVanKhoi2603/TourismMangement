@@ -38,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnProvince.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProvinceActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setControl() {

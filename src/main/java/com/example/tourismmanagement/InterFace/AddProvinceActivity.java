@@ -1,9 +1,13 @@
 package com.example.tourismmanagement.InterFace;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -29,6 +33,9 @@ public class AddProvinceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_province);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(R.string.addprovince);
         setControl();
         setEvent();
     }
@@ -43,10 +50,10 @@ public class AddProvinceActivity extends AppCompatActivity {
                     DBProvince dbProvince = new DBProvince(getApplicationContext());
                     province.setP_code(txtP_code.getText().toString());
                     province.setP_name(txtP_name.getText().toString());
-                    if (spP_Religion.getSelectedItem().equals("Miền bắc")){
+                    if (spP_Religion.getSelectedItem().equals("Miền bắc")) {
                         province.setP_regions("Miền bắc");
                     } else {
-                        if (spP_Religion.getSelectedItem().equals("Miền Trung")){
+                        if (spP_Religion.getSelectedItem().equals("Miền Trung")) {
                             province.setP_regions("Miền Trung");
                         } else {
                             province.setP_regions("Miền Nam");
@@ -54,8 +61,12 @@ public class AddProvinceActivity extends AppCompatActivity {
                     }
                     dbProvince.addProvince(province);
                     Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
-                    onRestart();
-                    dbProvince.notifyAll();
+                    Intent intent = new Intent(AddProvinceActivity.this, ProvinceActivity.class);
+                    startActivity(intent);
+                    //onRestart();
+
+
+
                 } else {
                     if (txtP_name.length() == 0) {
                         txtP_name.setError(R.string.set_error_edittext_empty + "");
@@ -85,5 +96,11 @@ public class AddProvinceActivity extends AppCompatActivity {
         spP_Religion = findViewById(R.id.spinner_p_religion);
         btnAddProvince = findViewById(R.id.btn_add_province);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }
