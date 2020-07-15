@@ -33,4 +33,5 @@
     <string name="central">Miền Trung</string>
     <string name="southward">Miền Nam</string>
     <string name="set_error_edittext_empty">Vui lòng nhập trường này!</string>
+    <string name="update_province">Cập nhật tỉnh</string>
 </resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InterFace.AddProvinceActivity">
+
+    <TextView
+        style="@style/s_title_produce"
+        android:text="@string/update_province"></TextView>
+
+    <EditText
+        android:id="@+id/editText_p_code_update"
+        style="@style/s_editText"
+        android:hint="@string/province_code"></EditText>
+
+
+    <EditText
+        android:id="@+id/editText_p_name_update"
+        style="@style/s_editText"
+        android:hint="@string/province_name"></EditText>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        style="@style/s_title_context"
+        android:text="@string/religion"></TextView>
+
+    <Spinner
+        android:id="@+id/spinner_p_religion_update"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></Spinner>
+
+    <LinearLayout
+        style="@style/s_horizontal"
+        >
+        <Button
+            android:id="@+id/btn_update_province"
+            style="@style/s_buttonBasic"
+            android:text="@string/update"></Button>
+        <Button
+            android:id="@+id/btn_delete_province"
+            style="@style/s_buttonBasic"
+            android:drawableLeft="@drawable/ic_delete"
+            android:text="@string/delete"></Button>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

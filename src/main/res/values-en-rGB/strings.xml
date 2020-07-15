@@ -34,4 +34,5 @@
     <string name="central">Central</string>
     <string name="southward">Southward</string>
     <string name="set_error_edittext_empty">Please enter this field</string>
+    <string name="update_province">Update Province</string>
 </resources>
