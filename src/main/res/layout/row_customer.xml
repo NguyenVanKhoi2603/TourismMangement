@@ -13,65 +13,66 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="222dp"
+            android:layout_height="158dp"
+            android:background="@color/colorbackgroupApp"
             android:padding="12dp">
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/imageView_c"
+                android:layout_width="127dp"
+                android:layout_height="123dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background"></ImageView>
 
             <TextView
-                android:id="@+id/textViewRow_p_name"
+                android:id="@+id/textViewRow_c_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="7dp"
                 android:text="Nguyen Van Khoi"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/imageView_c"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewRow_p_religion"
+                android:id="@+id/tvicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="7dp"
                 android:text="ID:"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRow_p_name" />
+                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_name" />
 
             <TextView
-                android:id="@+id/textView_c_code"
+                android:id="@+id/textViewRow_c_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="7dp"
                 android:text="098456432"
-                app:layout_constraintStart_toEndOf="@+id/textViewRow_p_religion"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRow_p_name" />
+                app:layout_constraintStart_toEndOf="@+id/tvicon"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_name" />
 
             <ImageView
                 android:id="@+id/imageView_c_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="7dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRow_p_religion"
-                app:srcCompat="@drawable/ic_baseline_perm_contact_calendar_24" />
+                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintTop_toBottomOf="@+id/tvicon"
+                app:srcCompat="@drawable/call_phone" />
 
             <TextView
-                android:id="@+id/textView_c_numberPhone"
+                android:id="@+id/textViewRow_c_numberPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -79,8 +80,18 @@
                 android:layout_marginTop="7dp"
                 android:text="037206506"
                 app:layout_constraintStart_toEndOf="@+id/imageView_c_contact"
-                app:layout_constraintTop_toBottomOf="@+id/textView_c_code" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_code" />
 
+            <TextView
+                android:id="@+id/textViewRow_c_Address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="7dp"
+                android:text="@string/address"
+                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_numberPhone" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

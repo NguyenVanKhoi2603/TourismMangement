@@ -41,10 +41,11 @@ public class DBCustomer {
             customerModel.setC_code(cursor.getString(0));
             customerModel.setC_fullname(cursor.getString(1));
             customerModel.setC_sex(cursor.getString(2));
-            customerModel.setC_numberphone(cursor.getString(3));
-            customerModel.setC_dayofbirth(cursor.getString(4));
+            customerModel.setC_dayofbirth(cursor.getString(3));
+            customerModel.setC_numberphone(cursor.getString(4));
             customerModel.setC_gmail(cursor.getString(5));
             customerModel.setC_address(cursor.getString(6));
+            //customer_code text, customer_name text, customer_sex text, customer_dayofbirth text, customer_numberphone text, customer_gmail text, customer_address text
             data.add(customerModel);
         }
         while (cursor.moveToNext());
@@ -64,8 +65,8 @@ public class DBCustomer {
                 customerModel.setC_code(cursor.getString(0));
                 customerModel.setC_fullname(cursor.getString(1));
                 customerModel.setC_sex(cursor.getString(2));
-                customerModel.setC_numberphone(cursor.getString(3));
-                customerModel.setC_dayofbirth(cursor.getString(4));
+                customerModel.setC_dayofbirth(cursor.getString(3));
+                customerModel.setC_numberphone(cursor.getString(4));
                 customerModel.setC_gmail(cursor.getString(5));
                 customerModel.setC_address(cursor.getString(6));
                 data.add(customerModel);

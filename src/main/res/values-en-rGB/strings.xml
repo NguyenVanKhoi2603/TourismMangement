@@ -35,4 +35,11 @@
     <string name="southward">Southward</string>
     <string name="set_error_edittext_empty">Please enter this field</string>
     <string name="update_province">Update Province</string>
+    <string name="addcustomer">Add Customer</string>
+    <string name="enterCustomer">Enter name customer</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="custom">Custom</string>
+    <string name="info_customer">Info Customer</string>
+    <string name="cancel">Cancel</string>
 </resources>

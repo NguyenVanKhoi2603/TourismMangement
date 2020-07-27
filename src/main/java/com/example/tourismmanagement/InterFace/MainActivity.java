@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.tourismmanagement.InterFace.Customer.CustomerActivity;
+import com.example.tourismmanagement.InterFace.Province.ProvinceActivity;
 import com.example.tourismmanagement.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CustomerActivity.class);
+                Intent intent = new Intent(MainActivity.this,  CustomerActivity.class);
                 startActivity(intent);
             }
         });

@@ -34,4 +34,11 @@
     <string name="southward">Miền Nam</string>
     <string name="set_error_edittext_empty">Vui lòng nhập trường này!</string>
     <string name="update_province">Cập nhật tỉnh</string>
+    <string name="addcustomer">Thêm Khách hàng</string>
+    <string name="enterCustomer">Nhập tên khách hàng</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="custom">Tuỳ chỉnh</string>
+    <string name="info_customer">Thông tin khách hàng</string>
+    <string name="cancel">Huỷ</string>
 </resources>

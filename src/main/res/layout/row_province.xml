@@ -28,7 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewRow_p_name"
+                android:id="@+id/textViewRow_c_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -40,13 +40,13 @@
                 app:layout_constraintTop_toTopOf="@+id/textViewRow_p_code" />
 
             <TextView
-                android:id="@+id/textViewRow_p_religion"
+                android:id="@+id/tvicon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Mien Trung"
-                app:layout_constraintStart_toStartOf="@+id/textViewRow_p_name"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRow_p_name" />
+                app:layout_constraintStart_toStartOf="@+id/textViewRow_c_name"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

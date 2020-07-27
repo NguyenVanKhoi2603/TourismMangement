@@ -1,11 +1,9 @@
-package com.example.tourismmanagement.InterFace;
+package com.example.tourismmanagement.InterFace.Province;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,18 +17,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.tourismmanagement.Adapter.CustomAdapter;
 import com.example.tourismmanagement.DataBase.DBProvince;
 import com.example.tourismmanagement.Model.ProvinceModel;
 import com.example.tourismmanagement.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
 public class UpdateProvinceActivity extends AppCompatActivity {
-    EditText txtP_code, txtP_name;
+    TextInputEditText txtP_code, txtP_name;
+    TextInputLayout txtLT_p_code, txtLT_p_name;
     Spinner spP_Religion;
     ProvinceModel provinceModel;
-    Button btnUpdateProvince, btnDeleteProvince;
+    Button btnUpdateProvince, btnDeleteProvince, btnCancel;
     ArrayList<String> data_religion = new ArrayList<>();
     ArrayList<ProvinceModel> data_province = new ArrayList<>();
     String code;
@@ -48,6 +48,12 @@ public class UpdateProvinceActivity extends AppCompatActivity {
 
     //
     private void setEvent() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         final DBProvince dbProvince = new DBProvince(this);
 
         initializeSpinner();
@@ -143,28 +149,6 @@ public class UpdateProvinceActivity extends AppCompatActivity {
         }
     }
 
-//    public ProvinceModel getdataToModel() {
-//        provinceModel = new ProvinceModel();
-//        try {
-//
-//            provinceModel.setP_code(data_province.get(0).getP_code());
-//            provinceModel.setP_name(txtP_name.getText().toString());
-//            if (spP_Religion.getSelectedItem().equals("Miền bắc")) {
-//                provinceModel.setP_regions("Miền bắc");
-//            } else {
-//                if (spP_Religion.getSelectedItem().equals("Miền Trung")) {
-//                    provinceModel.setP_regions("Miền Trung");
-//                } else {
-//                    provinceModel.setP_regions("Miền Nam");
-//                }
-//            }
-//        }catch (Exception ex){
-//            Toast.makeText(getApplicationContext(), "loi getdata model" , Toast.LENGTH_SHORT).show();
-//        }
-//        return provinceModel;
-//
-//    }
-
     private void initializeSpinner() {
         data_religion.add("Miền bắc");
         data_religion.add("Miền Trung");
@@ -174,11 +158,12 @@ public class UpdateProvinceActivity extends AppCompatActivity {
     }
 
     private void setControl() {
-        txtP_code = findViewById(R.id.editText_p_code_update);
-        txtP_name = findViewById(R.id.editText_p_name_update);
+        txtP_code = findViewById(R.id.edt_p_code_update);
+        txtP_name = findViewById(R.id.edt_p_name_update);
         spP_Religion = findViewById(R.id.spinner_p_religion_update);
         btnDeleteProvince = findViewById(R.id.btn_delete_province);
         btnUpdateProvince = findViewById(R.id.btn_update_province);
+        btnCancel = findViewById(R.id.btn_p_cancel_update);
 
     }
 

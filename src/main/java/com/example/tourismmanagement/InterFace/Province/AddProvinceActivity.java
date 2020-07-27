@@ -1,9 +1,8 @@
-package com.example.tourismmanagement.InterFace;
+package com.example.tourismmanagement.InterFace.Province;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,17 +14,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.tourismmanagement.Adapter.CustomAdapter;
 import com.example.tourismmanagement.DataBase.DBProvince;
 import com.example.tourismmanagement.Model.ProvinceModel;
 import com.example.tourismmanagement.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
 public class AddProvinceActivity extends AppCompatActivity {
-    EditText txtP_code, txtP_name;
+    TextInputEditText txtP_code, txtP_name;
+    TextInputLayout txtLT_p_code, txtLT_p_name;
     Spinner spP_Religion;
-    Button btnAddProvince;
+    Button btnAddProvince, btnCancel;
     DBProvince dbProvince;
     ArrayList<String> data_religion = new ArrayList<>();
 
@@ -41,6 +42,12 @@ public class AddProvinceActivity extends AppCompatActivity {
     }
 
     private void setEvent() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         initializeSpinner();
         btnAddProvince.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,10 +98,13 @@ public class AddProvinceActivity extends AppCompatActivity {
     }
 
     private void setControl() {
-        txtP_code = findViewById(R.id.editText_p_code);
-        txtP_name = findViewById(R.id.editText_p_name);
+        txtP_code = findViewById(R.id.edt_p_code);
+        txtP_name = findViewById(R.id.edt_p_name);
         spP_Religion = findViewById(R.id.spinner_p_religion);
         btnAddProvince = findViewById(R.id.btn_add_province);
+        txtLT_p_code = findViewById(R.id.edtLT_p_code);
+        txtLT_p_name = findViewById(R.id.edtLT_p_name);
+        btnCancel = findViewById(R.id.btn_p_cancel);
 
     }
 

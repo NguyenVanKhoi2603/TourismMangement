@@ -5,22 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InterFace.AddProvinceActivity">
+    tools:context=".InterFace.Province.AddProvinceActivity">
+
+
 
     <TextView
         style="@style/s_title_produce"
         android:text="@string/addprovince"></TextView>
 
-    <EditText
-        android:id="@+id/editText_p_code"
-        style="@style/s_editText"
-        android:hint="@string/province_code"></EditText>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/edtLT_p_code"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_p_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/province_code">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    <EditText
-        android:id="@+id/editText_p_name"
-        style="@style/s_editText"
-        android:hint="@string/province_name"></EditText>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/edtLT_p_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_p_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/province_name">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_marginTop="15dp"
@@ -32,9 +57,19 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"></Spinner>
 
-    <Button
-        android:id="@+id/btn_add_province"
-        style="@style/s_buttonBasic"
-        android:text="@string/add"></Button>
+    <LinearLayout
+        style="@style/s_horizontal">
+
+        <Button
+            android:id="@+id/btn_add_province"
+            style="@style/s_buttonBasic"
+            android:text="@string/add"></Button>
+
+        <Button
+            android:id="@+id/btn_p_cancel"
+            style="@style/s_buttonBasic"
+            android:text="@string/cancel"></Button>
+
+    </LinearLayout>
 
 </LinearLayout>

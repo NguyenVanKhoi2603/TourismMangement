@@ -7,17 +7,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tourismmanagement.DataBase.DBProvince;
-import com.example.tourismmanagement.InterFace.AddProvinceActivity;
-import com.example.tourismmanagement.InterFace.ProvinceActivity;
-import com.example.tourismmanagement.InterFace.UpdateProvinceActivity;
+import com.example.tourismmanagement.InterFace.Province.UpdateProvinceActivity;
 import com.example.tourismmanagement.Model.ProvinceModel;
 import com.example.tourismmanagement.R;
 
@@ -37,8 +33,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //LayoutInflater inflater = LayoutInflater.from(context);
-        //View view = inflater.inflate(R.layout.row_province, parent, false);
         Context context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.row_province, parent, false);
         return new MyViewHolder(view);
@@ -84,15 +78,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         public MyViewHolder(@NonNull final View itemView) {
             super(itemView);
             txt_p_code = itemView.findViewById(R.id.textViewRow_p_code);
-            txt_p_name = itemView.findViewById(R.id.textViewRow_p_name);
-            txt_p_religion = itemView.findViewById(R.id.textViewRow_p_religion);
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//
-//
-//                }
-//            });
+            txt_p_name = itemView.findViewById(R.id.textViewRow_c_name);
+            txt_p_religion = itemView.findViewById(R.id.tvicon);
         }
 
 
