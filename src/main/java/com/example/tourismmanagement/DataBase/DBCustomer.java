@@ -20,13 +20,14 @@ public class DBCustomer {
     public void addCustomer(CustomerModel customerModel) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("customer_code", customerModel.getC_code());
+        values.put("customer_id", customerModel.getC_code());
         values.put("customer_name", customerModel.getC_fullname());
         values.put("customer_sex", customerModel.getC_sex());
         values.put("customer_numberphone", customerModel.getC_numberphone());
         values.put("customer_dayofbirth", customerModel.getC_dayofbirth());
         values.put("customer_gmail", customerModel.getC_gmail());
         values.put("customer_address", customerModel.getC_address());
+        values.put("customer_avatar", customerModel.getImgavatar());
         db.insert("Customers", null, values);
     }
 
@@ -45,6 +46,7 @@ public class DBCustomer {
             customerModel.setC_numberphone(cursor.getString(4));
             customerModel.setC_gmail(cursor.getString(5));
             customerModel.setC_address(cursor.getString(6));
+            customerModel.setImgavatar(cursor.getBlob(7));
             //customer_code text, customer_name text, customer_sex text, customer_dayofbirth text, customer_numberphone text, customer_gmail text, customer_address text
             data.add(customerModel);
         }
@@ -54,7 +56,7 @@ public class DBCustomer {
 
     public ArrayList<CustomerModel> getDataByCode(String code) {
         ArrayList<CustomerModel> data = new ArrayList<>();
-        String sql = "Select * from Customers where customer_code = '" + code + "'";
+        String sql = "Select * from Customers where customer_id = '" + code + "'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
@@ -69,6 +71,8 @@ public class DBCustomer {
                 customerModel.setC_numberphone(cursor.getString(4));
                 customerModel.setC_gmail(cursor.getString(5));
                 customerModel.setC_address(cursor.getString(6));
+                customerModel.setImgavatar(cursor.getBlob(7));
+
                 data.add(customerModel);
             }
             while (cursor.moveToNext());
@@ -83,21 +87,22 @@ public class DBCustomer {
 //        values.put("province_code", province.getP_code());
 //        values.put("province_name", province.getP_name());
 //        values.put("province_regions", province.getP_regions());
-        db.delete("Customers", "customer_code = '" + c_Code + "'", null);
+        db.delete("Customers", "customer_id = '" + c_Code + "'", null);
         db.close();
     }
 
     public void updateCustomer(CustomerModel customerModel) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("customer_code", customerModel.getC_code());
+        values.put("customer_id", customerModel.getC_code());
         values.put("customer_name", customerModel.getC_fullname());
         values.put("customer_sex", customerModel.getC_sex());
         values.put("customer_numberphone", customerModel.getC_numberphone());
         values.put("customer_dayofbirth", customerModel.getC_dayofbirth());
         values.put("customer_gmail", customerModel.getC_gmail());
         values.put("customer_address", customerModel.getC_address());
-        db.update("Customers", values, "customer_code ='" + customerModel.getC_code() + "'", null);
+        values.put("customer_avatar", customerModel.getImgavatar());
+        db.update("Customers", values, "customer_id ='" + customerModel.getC_code() + "'", null);
         db.close();
     }
 

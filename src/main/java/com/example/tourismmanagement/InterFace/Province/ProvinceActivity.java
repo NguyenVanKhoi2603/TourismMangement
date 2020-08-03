@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.tourismmanagement.Adapter.CustomAdapter;
 import com.example.tourismmanagement.DataBase.DBProvince;
+import com.example.tourismmanagement.InterFace.Customer.CustomerActivity;
+import com.example.tourismmanagement.InterFace.MainActivity;
 import com.example.tourismmanagement.Model.ProvinceModel;
 import com.example.tourismmanagement.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -57,11 +59,11 @@ public class ProvinceActivity extends AppCompatActivity {
 
     private void loadData() {
         try {
-            customAdapter = new CustomAdapter(ProvinceActivity.this,  dbProvince.getList());
+            customAdapter = new CustomAdapter(ProvinceActivity.this, dbProvince.getList());
             recyclerView_province.setAdapter(customAdapter);
             recyclerView_province.setLayoutManager(new LinearLayoutManager(ProvinceActivity.this));
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), "loi", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No data!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -97,23 +99,26 @@ public class ProvinceActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-    onBackPressed();
-        switch (item.getItemId()) {
-            case R.id.quocKy:
-
-                lang = !lang;
-                if (lang) {
-                    item.setIcon(R.drawable.vn);
-                    Toast.makeText(ProvinceActivity.this, "Việt Nam", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    item.setIcon(R.drawable.usa);
-                    Toast.makeText(ProvinceActivity.this, "USA", Toast.LENGTH_LONG).show();
-                }
-                break;
-        }
+        Intent intent = new Intent(ProvinceActivity.this, MainActivity.class);
+        startActivity(intent);
+//        onBackPressed();
+//        switch (item.getItemId()) {
+//            case R.id.quocKy:
+//
+//                lang = !lang;
+//                if (lang) {
+//                    item.setIcon(R.drawable.vn);
+//                    Toast.makeText(ProvinceActivity.this, "Việt Nam", Toast.LENGTH_SHORT).show();
+//
+//                } else {
+//                    item.setIcon(R.drawable.usa);
+//                    Toast.makeText(ProvinceActivity.this, "USA", Toast.LENGTH_LONG).show();
+//                }
+//                break;
+//        }
         return super.onOptionsItemSelected(item);
     }
 }

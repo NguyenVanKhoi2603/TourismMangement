@@ -3,6 +3,8 @@
     package="com.example.tourismmanagement">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"></uses-feature>
 
     <application
         android:allowBackup="true"
@@ -13,18 +15,44 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".InterFace.Customer.UpdateCustomer"></activity>
+        <activity android:name=".InterFace.Destination.AddDestination">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".InterFace.Tour.AddTour" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".InterFace.Tour.ToursActivity" />
+        <activity android:name=".InterFace.Destination.Destination">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
         <activity android:name=".InterFace.Customer.AddCustomerActivity" />
-        <activity android:name=".InterFace.ToursActivity" />
         <activity android:name=".InterFace.Province.UpdateProvinceActivity" />
         <activity android:name=".InterFace.Province.AddProvinceActivity" />
         <activity android:name=".InterFace.Province.ProvinceActivity" />
-        <activity android:name=".InterFace.Loading" />
+        <activity android:name=".InterFace.Loading">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
         <activity android:name=".InterFace.MainActivity">
-
              <intent-filter>
              <action android:name="android.intent.action.MAIN" />
-
-
              <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
         </activity>

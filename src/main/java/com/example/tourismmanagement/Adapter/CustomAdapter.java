@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -74,11 +75,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView txt_p_code, txt_p_name, txt_p_religion;
-
         public MyViewHolder(@NonNull final View itemView) {
             super(itemView);
+
             txt_p_code = itemView.findViewById(R.id.textViewRow_p_code);
-            txt_p_name = itemView.findViewById(R.id.textViewRow_c_name);
+            txt_p_name = itemView.findViewById(R.id.textViewRow_p_name);
             txt_p_religion = itemView.findViewById(R.id.tvicon);
         }
 

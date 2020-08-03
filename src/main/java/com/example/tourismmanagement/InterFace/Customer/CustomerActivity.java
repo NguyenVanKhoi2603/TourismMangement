@@ -1,5 +1,7 @@
 package com.example.tourismmanagement.InterFace.Customer;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,10 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.tourismmanagement.Adapter.CustomerAdapter;
 import com.example.tourismmanagement.DataBase.DBCustomer;
+import com.example.tourismmanagement.InterFace.Destination.Destination;
+import com.example.tourismmanagement.InterFace.MainActivity;
 import com.example.tourismmanagement.Model.CustomerModel;
 import com.example.tourismmanagement.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,10 +33,14 @@ public class CustomerActivity extends AppCompatActivity {
     DBCustomer dbCustomer;
     ArrayList<CustomerModel> data_customer = new ArrayList<>();
     CustomerAdapter customerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setTitle(R.string.customer);
         setControl();
         setEvent();
     }
@@ -55,11 +64,11 @@ public class CustomerActivity extends AppCompatActivity {
 
     private void loadData() {
         try {
-            customerAdapter = new CustomerAdapter(CustomerActivity.this,  dbCustomer.getListCustomer());
+            customerAdapter = new CustomerAdapter(CustomerActivity.this, dbCustomer.getListCustomer());
             recyclerView_customer.setAdapter(customerAdapter);
             recyclerView_customer.setLayoutManager(new LinearLayoutManager(CustomerActivity.this));
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), "Chua co du lieu", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No data!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -77,10 +86,21 @@ public class CustomerActivity extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-                //customerAdapter.getFilter().filter(newText);
+                customerAdapter.getFilter().filter(newText);
                 return false;
             }
         });
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_home:
+                Intent intent = new Intent(CustomerActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

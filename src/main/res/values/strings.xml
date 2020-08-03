@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Tourism Management</string>
-    <string name="titleProduce">Quản lý Tour</string>
     <string name="add">Thêm</string>
     <string name="delete">Xoá</string>
     <string name="update">Sửa/Cập nhật</string>
@@ -12,11 +11,6 @@
     <string name="date_of_birth">Ngày sinh</string>
     <string name="sex">Giới tính</string>
     <string name="customers_code">Mã khách hàng</string>
-    <string name="note">Ghi chú</string>
-    <string name="vehicle">Phương tiện</string>
-    <string name="number_of_days">Số ngày</string>
-    <string name="number_of_nights">Số đêm</string>
-    <string name="departure_day">Ngày khởi hành</string>
     <string name="gmail">Gmail</string>
     <string name="phone_number">Số điện thoại</string>
     <string name="address">Địa chỉ</string>
@@ -24,7 +18,6 @@
     <string name="log_out">Đăng xuất</string>
     <string name="notification">Thông báo</string>
     <string name="do_you_want_to_exit">bạn có muốn thoát không?</string>
-    <string name="tour">Tour</string>
     <string name="addprovince">Thêm tỉnh</string>
     <string name="province_code">Mã tỉnh</string>
     <string name="province_name">Tên Tỉnh</string>
@@ -41,4 +34,39 @@
     <string name="custom">Tuỳ chỉnh</string>
     <string name="info_customer">Thông tin khách hàng</string>
     <string name="cancel">Huỷ</string>
+    <string name="book_tour">Đặt tour</string>
+    <string name="titleProduce">Quản lý Tour</string>
+    <string name="vehicle">Phương Tiện Di Chuyển</string>
+    <string name="number_of_days">Số ngày</string>
+    <string name="number_of_nights">Số đêm</string>
+    <string name="tour">Tour</string>
+    <string name="tourAdd">Thêm Tour</string>
+    <string name="tourList">Danh Sách Tour</string>
+    <string name="tourName">Tên Tour</string>
+    <string name="bus">Xe khách</string>
+    <string name="bike">Xe máy</string>
+    <string name="bicycle">Xe đạp</string>
+    <string name="train">Tàu hỏa</string>
+    <string name="boat">Thuyền</string>
+    <string name="airplane">Máy bay</string>
+    <string name="price_tick">Giá vé</string>
+    <string name="promotion">Nhập vào chương trình khuyến mãi của tour</string>
+    <string name="price_personal">Giá vé cá nhân: </string>
+    <string name="group">Nhóm</string>
+    <string name="price_group">Khuyến mãi khi đăng ký nhóm:</string>
+    <string name="price_one">Nhập vào giá vé</string>
+    <string name="desList">Danh Sách Địa Điểm</string>
+    <string name="desAdd">Thêm Địa Điểm</string>
+    <string name="desId">Mã địa điểm</string>
+    <string name="desName">Tên địa điểm</string>
+    <string name="chooseProvince">Chọn tỉnh</string>
+    <string name="description_place">Mô tả địa điểm</string>
+    <string name="note">Ghi chú</string>
+    <string name="departure_day">Ngày khởi hành</string>
+    <string name="destination">Điểm đến</string>
+    <string name="tour_code">ID Tour</string>
+    <string name="time">Thời gian</string>
+    <string name="choose_destination">Chọn điểm đến</string>
+    <string name="departure">Xuất phát</string>
+    <string name="info_tour">Thông tin về tuor</string>
 </resources>

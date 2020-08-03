@@ -7,180 +7,221 @@
     android:orientation="vertical"
     tools:context=".InterFace.Customer.AddCustomerActivity">
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/layoutEditText_c_code"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText_c_code"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/customers_code">
+            android:orientation="vertical">
 
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:background="#000000"
+                app:cardCornerRadius="100dp"
+                app:cardElevation="0dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/layoutEditText_c_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+                <ImageView
+                    android:id="@+id/img_c_profile_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/chooseimage">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText_c_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/customer">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
 
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout style="@style/s_horizontal">
 
+                <ImageButton
+                    android:id="@+id/btn_chooseImg_c"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/gallery"
+                    android:layout_height="wrap_content"></ImageButton>
+                <ImageButton
+                    android:id="@+id/btn_TakeImg_c"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/camera"
+                    android:layout_height="wrap_content"></ImageButton>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingRight="10dp"
-        android:orientation="horizontal">
+            </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/layoutEditText_c_birthOfDay"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            app:boxStrokeColor="@color/borderColor"
-            android:outlineSpotShadowColor="@color/borderColor"
-            android:outlineAmbientShadowColor="@color/borderColor"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editText_c_birthOfDay"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutEditText_c_code"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy">
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_c_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/customers_code">
 
-        <ImageButton
-            android:layout_gravity="center"
-            android:id="@+id/button_c_chooseDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/icon_choose_date"
-            ></ImageButton>
-    </LinearLayout>
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutEditText_c_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/border_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="15dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_c_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/customer">
 
-        <RadioButton
-            android:id="@+id/radioButton_c_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:checked="true"
-            android:tag="@string/male"
-            android:text="@string/male"></RadioButton>
-
-        <RadioButton
-            android:id="@+id/radioButton_c_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:tag="@string/female"
-            android:text="@string/female"></RadioButton>
-
-        <RadioButton
-            android:id="@+id/radioButton_c_custom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:tag="@string/custom"
-            android:text="@string/custom"></RadioButton>
-    </RadioGroup>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/layoutEditText_c_nnumberPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText_c_numberPhone"
-            android:layout_width="match_parent"
-            android:inputType="phone"
-            android:layout_height="wrap_content"
-            android:hint="@string/phone_number">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/layoutEditText_c_gmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText_c_gmail"
-            android:layout_width="match_parent"
-            android:inputType="textEmailAddress"
-            android:layout_height="wrap_content"
-            android:hint="@string/gmail">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/layoutEditText_c_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText_c_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/address">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    <LinearLayout
-        style="@style/s_horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="10dp">
 
-    <Button
-        android:id="@+id/btn_add_customer"
-        style="@style/s_buttonBasic"
-        android:text="@string/add"></Button>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEditText_c_birthOfDay"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:outlineAmbientShadowColor="@color/borderColor"
+                    android:outlineSpotShadowColor="@color/borderColor"
+                    app:boxStrokeColor="@color/borderColor">
 
-        <Button
-            android:id="@+id/btn_c_cancel"
-            style="@style/s_buttonBasic"
-            android:text="@string/cancel"></Button>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_c_birthOfDay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="dd/mm/yyyy">
 
-    </LinearLayout>
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/button_c_chooseDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon_choose_date"></ImageButton>
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <RadioButton
+                    android:id="@+id/radioButton_c_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:checked="true"
+                    android:tag="@string/male"
+                    android:text="@string/male"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/radioButton_c_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:tag="@string/female"
+                    android:text="@string/female"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/radioButton_c_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:tag="@string/custom"
+                    android:text="@string/custom"></RadioButton>
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutEditText_c_nnumberPhone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_c_numberPhone"
+                    android:layout_width="match_parent"
+                    android:maxLength="11"
+                    android:drawableRight="@drawable/check_no_color"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone_number"
+                    android:inputType="phone"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutEditText_c_gmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_c_gmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/gmail"
+                    android:inputType="textEmailAddress"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutEditText_c_address"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText_c_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout style="@style/s_horizontal">
+
+                <Button
+                    android:id="@+id/btn_add_customer"
+                    style="@style/s_buttonBasic"
+                    android:text="@string/add"></Button>
+
+                <Button
+                    android:id="@+id/btn_c_cancel"
+                    style="@style/s_buttonBasic"
+                    android:text="@string/cancel"></Button>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

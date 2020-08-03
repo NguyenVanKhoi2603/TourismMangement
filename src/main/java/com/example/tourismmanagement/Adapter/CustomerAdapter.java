@@ -3,6 +3,8 @@ package com.example.tourismmanagement.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,19 +50,22 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
         holder.txt_c_phone.setText(customer.getC_numberphone());
         holder.txt_c_name.setText(customer.getC_fullname());
         holder.txt_c_address.setText(customer.getC_address());
-        if (customer.getC_sex().equals("0")){
-            holder.img_c.setImageResource(R.drawable.man);
-        } else {
-            if (customer.getC_sex().equals("1")){
-                holder.img_c.setImageResource(R.drawable.woman);
-            } else {
-                if (customer.getC_sex().equals("2")){
-                    holder.img_c.setImageResource(R.drawable.usa);
-                } else {
-                    holder.img_c.setImageResource(R.drawable.usa);
-                }
-            }
-        }
+        byte[] customer_img = customer.getImgavatar();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(customer_img, 0, customer_img.length);
+        holder.img_c.setImageBitmap(bitmap);
+//        if (customer.getC_sex().equals("0")){
+//            holder.img_c.setImageResource(R.drawable.man);
+//        } else {
+//            if (customer.getC_sex().equals("1")){
+//                holder.img_c.setImageResource(R.drawable.woman);
+//            } else {
+//                if (customer.getC_sex().equals("2")){
+//                    holder.img_c.setImageResource(R.drawable.sex);
+//                } else {
+//                    holder.img_c.setImageResource(R.drawable.sex);
+//                }
+//            }
+//        }
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -73,26 +78,6 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
                 ((Activity) context).startActivity(intent);
             }
         });
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Toast.makeText(view.getContext(), txt_p_name.getText() + "", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent((Activity)context, UpdateProvinceActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putString("p_code", province.getP_code());
-//                intent.putExtras(bundle);
-//                ((Activity) context).startActivity(intent);
-//            }
-//        });
-//        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View view) {
-//                DBProvince dbProvince = new DBProvince(context);
-//                dbProvince.deleteProvince(province.getP_code());
-//                return false;
-//            }
-//        });
 
     }
 
@@ -111,12 +96,14 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
             txt_c_name = itemView.findViewById(R.id.textViewRow_c_name);
             txt_c_phone = itemView.findViewById(R.id.textViewRow_c_numberPhone);
             txt_c_address = itemView.findViewById(R.id.textViewRow_c_Address);
-            img_c = itemView.findViewById(R.id.imageView_c);
+            img_c = itemView.findViewById(R.id.imageViewRow_c);
         }
 
 
     }
-
+    public Filter getFilter() {
+        return exampleFilter;
+    }
     private Filter exampleFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {

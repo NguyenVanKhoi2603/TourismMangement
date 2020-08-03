@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:padding="20dp"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <ImageButton
+        android:id="@+id/imageButton_plus"
+        android:layout_width="60dp"
+        android:layout_margin="15dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/plus"
+        android:background="@drawable/button_number"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="339dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="161dp"
+        android:layout_height="63dp"
+        tools:layout_editor_absoluteX="125dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        tools:layout_editor_absoluteY="334dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/edt_value_number"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="0" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <ImageButton
+        android:id="@+id/imageButton_remove"
+        android:layout_width="60dp"
+        android:layout_margin="15dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/minus"
+        android:background="@drawable/button_number"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="339dp" />
+
+
+
+</LinearLayout>

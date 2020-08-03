@@ -6,12 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tourismmanagement.DataBase.DBProvince;
@@ -29,6 +34,12 @@ public class AddProvinceActivity extends AppCompatActivity {
     Button btnAddProvince, btnCancel;
     DBProvince dbProvince;
     ArrayList<String> data_religion = new ArrayList<>();
+    public ImageView iconToast;
+    public TextView textView_Toast;
+    public LayoutInflater layoutInflater;
+    public View layout;
+    public Toast toast_mes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +49,35 @@ public class AddProvinceActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.addprovince);
         setControl();
+        toast_custom();
         setEvent();
+
+
+    }
+
+    public void showToastMessage(int duration) {
+        textView_Toast.setText("Added!!!");
+        iconToast.setImageResource(R.drawable.check_white1);
+        toast_mes.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toast_mes.cancel();
+            }
+        }, duration);
+    }
+
+    private void toast_custom() {
+
+        layoutInflater = getLayoutInflater();
+        layout = layoutInflater.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.toast_layout));
+        toast_mes = new Toast(getApplicationContext());
+        toast_mes.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast_mes.setDuration(Toast.LENGTH_LONG);
+        toast_mes.setView(layout);
+        iconToast = layout.findViewById(R.id.imageView_toast);
+        textView_Toast = layout.findViewById(R.id.textView_toast);
     }
 
     private void setEvent() {
@@ -67,11 +106,10 @@ public class AddProvinceActivity extends AppCompatActivity {
                         }
                     }
                     dbProvince.addProvince(province);
-                    Toast.makeText(getApplicationContext(), "Added", Toast.LENGTH_SHORT).show();
+                    showToastMessage(1000);
                     Intent intent = new Intent(AddProvinceActivity.this, ProvinceActivity.class);
                     startActivity(intent);
                     //onRestart();
-
 
 
                 } else {

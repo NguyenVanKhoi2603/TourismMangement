@@ -4,13 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,12 +40,15 @@ import com.example.tourismmanagement.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class UpdateCustomer extends AppCompatActivity {
     Button btn_c_Update, btn_c_delete, btn_c_cancel;
-    ImageView imageView_c_profile;
+    ImageView imageView_c_profile, btnChooseImg;
     ImageButton btn_c_chooseDate;
     TextInputEditText txt_c_BirthOfDay, txt_c_code, txt_c_name, txt_c_gmail, txt_c_phoneNumber, txt_c_address;
     TextInputLayout txtIL_c_code, txtIL_c_BirthOfDay, txtIL_c_name, txtIL_c_gmail, txtIL_c_phoneNumber, txtIL_c_address;
@@ -48,6 +60,7 @@ public class UpdateCustomer extends AppCompatActivity {
     int day = 0;
     int month = 0;
     int year = 0;
+    final int REQUEST_CODE_GALLERY = 999;
     ArrayList<CustomerModel> data_customer = new ArrayList<>();
     String code;
     CustomerModel customerModel;
@@ -63,9 +76,49 @@ public class UpdateCustomer extends AppCompatActivity {
     }
 
     private void setEvent() {
+
+        txt_c_phoneNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() < 10){
+                    int ic = R.drawable.check_false;
+                    txt_c_phoneNumber.setCompoundDrawablesWithIntrinsicBounds(0, 0, ic, 0);
+                }
+                if (charSequence.length() == 11 || charSequence.length() == 10){
+                    char checkTrue = 0;
+                    if (Character.toString(charSequence.charAt(0)).equals("0")){
+                        int ic = R.drawable.check_true;
+                        txt_c_phoneNumber.setCompoundDrawablesWithIntrinsicBounds(0, 0, ic, 0);
+                        txtIL_c_phoneNumber.setError("");
+                    } else {
+                        txtIL_c_phoneNumber.setError("Start 0 and number phone equal 10 numbers!");
+                    }
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        btnChooseImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(
+                        UpdateCustomer.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY
+                );
+            }
+        });
         dbCustomer = new DBCustomer(this);
         getData(dbCustomer);
-
         btn_c_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +152,7 @@ public class UpdateCustomer extends AppCompatActivity {
                 customerModel.setC_numberphone(txt_c_phoneNumber.getText().toString());
                 customerModel.setC_gmail(txt_c_gmail.getText().toString());
                 customerModel.setC_dayofbirth(txt_c_BirthOfDay.getText().toString());
+                customerModel.setImgavatar(imageViewToByte(imageView_c_profile));
                 if (rabMale.isChecked() == true) {
                     customerModel.setC_sex("0");
                 } else {
@@ -118,7 +172,7 @@ public class UpdateCustomer extends AppCompatActivity {
                         Log.d("updatecustomer", customerModel.toString());
                         Intent intent = new Intent(UpdateCustomer.this, CustomerActivity.class);
                         startActivity(intent);
-                        Toast.makeText(getApplicationContext(), "cap nhat thanh cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -144,7 +198,7 @@ public class UpdateCustomer extends AppCompatActivity {
 
                         Intent intent = new Intent(UpdateCustomer.this, CustomerActivity.class);
                         startActivity(intent);
-                        Toast.makeText(getApplicationContext(), "Xoa thanh cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
@@ -156,7 +210,14 @@ public class UpdateCustomer extends AppCompatActivity {
                 builder.show();
             }
         });
+    }
 
+    public static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
     }
     private void getData(DBCustomer dbCustomer) {
         try {
@@ -169,19 +230,9 @@ public class UpdateCustomer extends AppCompatActivity {
             txt_c_phoneNumber.setText(data_customer.get(0).getC_numberphone());
             txt_c_BirthOfDay.setText(data_customer.get(0).getC_dayofbirth());
             String sex = data_customer.get(0).getC_sex();
-            if (sex.equals("0")) {
-                rabMale.setChecked(true);
-                imageView_c_profile.setImageResource(R.drawable.man);
-            } else {
-                if (sex.equals("1")) {
-                    rabFemale.setChecked(true);
-                    imageView_c_profile.setImageResource(R.drawable.woman);
-                } else {
-                    rabCustom.setChecked(true);
-                    imageView_c_profile.setImageResource(R.drawable.usa);
-                }
-            }
-
+            byte[] customer_img = data_customer.get(0).getImgavatar();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(customer_img, 0, customer_img.length);
+            imageView_c_profile.setImageBitmap(bitmap);
         } catch (Exception ex) {
             Toast.makeText(getApplicationContext(), "loi" + code, Toast.LENGTH_SHORT).show();
         }
@@ -224,6 +275,43 @@ public class UpdateCustomer extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if(requestCode == REQUEST_CODE_GALLERY){
+            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_CODE_GALLERY);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data != null){
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                imageView_c_profile.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     private void setControl() {
         btn_c_delete = findViewById(R.id.btn_c_delete);
@@ -246,10 +334,9 @@ public class UpdateCustomer extends AppCompatActivity {
         rabCustom = findViewById(R.id.rab_c_custom_update);
         rabFemale = findViewById(R.id.rab_c_female_update);
         rabMale = findViewById(R.id.rab_c_male_update);
-
         imageView_c_profile = findViewById(R.id.img_c_profile);
-
         btn_c_cancel = findViewById(R.id.btn_c_cancel_update);
+        btnChooseImg = findViewById(R.id.btn_chooseImg_c_update);
     }
 
     @Override

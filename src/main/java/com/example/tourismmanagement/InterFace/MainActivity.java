@@ -3,6 +3,7 @@ package com.example.tourismmanagement.InterFace;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,33 +16,47 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.tourismmanagement.InterFace.Customer.CustomerActivity;
+import com.example.tourismmanagement.InterFace.Destination.Destination;
 import com.example.tourismmanagement.InterFace.Province.ProvinceActivity;
+import com.example.tourismmanagement.InterFace.Tour.ToursActivity;
 import com.example.tourismmanagement.R;
 
 public class MainActivity extends AppCompatActivity {
-
-    Button btnTour, btnCustomer, btnProvince, btnTourist_Attraction;
+    CardView cardViewbtn_tour, cardViewbtn_customer, cardViewbtn_province, cardViewbtn_tourismAtt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setControl();
-        registerForContextMenu(btnTour);
         setEvent();
     }
 
-
     private void setEvent() {
-        btnCustomer.setOnClickListener(new View.OnClickListener() {
+
+
+        cardViewbtn_customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,  CustomerActivity.class);
                 startActivity(intent);
             }
         });
-
-        btnProvince.setOnClickListener(new View.OnClickListener() {
+        cardViewbtn_tourismAtt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,  Destination.class);
+                startActivity(intent);
+            }
+        });
+        cardViewbtn_tour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,  ToursActivity.class);
+                startActivity(intent);
+            }
+        });
+        cardViewbtn_province.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ProvinceActivity.class);
@@ -51,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setControl() {
-        btnTour = findViewById(R.id.btnMain_tour);
-        btnCustomer = findViewById(R.id.btnMain_Customer);
-        btnTourist_Attraction = findViewById(R.id.btnMain_Tourist_attraction);
-        btnProvince = findViewById(R.id.btnMain_Province);
+        cardViewbtn_customer = findViewById(R.id.cardView_customer);
+        cardViewbtn_province = findViewById(R.id.cardView_province);
+        cardViewbtn_tour = findViewById(R.id.cardView_tour);
+        cardViewbtn_tourismAtt = findViewById(R.id.cardView_tourism_attr);
     }
 
     @Override

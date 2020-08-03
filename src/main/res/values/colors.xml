@@ -2,11 +2,12 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#26A69A</color>
+    <color name="colorAccent">#FF8F00</color>
     <color name="colorBackgroudTitle">#00BCD4</color>
     <color name="colorText">#000000</color>
     <color name="colorButtonType2">#4CAF50</color>
     <color name="borderColor">#000000</color>
     <color name="colorbackgroupApp">#FAFAFA</color>
-    <color name="colorbuttonCam">#26A69A</color>
+    <color name="colorbuttonCam">#FF8F00</color>
+    <color name="colorborder">#7a8b8b8b</color>
 </resources>

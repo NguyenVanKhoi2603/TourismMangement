@@ -11,38 +11,32 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, "SQLiteTourismManage", null, 1);
     }
 
-    public static class FeedEntry implements BaseColumns {
-        public static final String TABLE_NAME = "entry";
-        public static final String COLUMN_NAME_TITLE = "title";
-        public static final String COLUMN_NAME_SUBTITLE = "subtitle";
-    }
-    private static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + FeedEntry.TABLE_NAME + " (" +
-                    FeedEntry._ID + " INTEGER PRIMARY KEY," +
-                    FeedEntry.COLUMN_NAME_TITLE + " TEXT," +
-                    FeedEntry.COLUMN_NAME_SUBTITLE + " TEXT)";
-
-    private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + FeedEntry.TABLE_NAME;
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-
-        String sqlProvince = "Create table Provinces (province_code text, province_name text, province_regions text)";
+        String sqlProvince = "Create table Provinces (province_id text PRIMARY KEY, province_name text, province_regions text)";
         sqLiteDatabase.execSQL(sqlProvince);
 
-        sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
+        String sqlDestination = "Create table Destinations (des_id text PRIMARY KEY, des_name text, des_address text, des_province text" +
+                ", des_description text, des_image BLOB, FOREIGN KEY(des_province) REFERENCES Provinces(province_id) ON DELETE CASCADE)";
+        sqLiteDatabase.execSQL(sqlDestination);
 
-        String sqlCustomer = "Create table Customers (customer_code text, customer_name text, customer_sex text, customer_dayofbirth text, customer_numberphone text, customer_gmail text, customer_address text)";
+        String sqlCustomer = "Create table Customers (customer_id text PRIMARY KEY, customer_name text, customer_sex text" +
+                ", customer_dayofbirth text, customer_numberphone text UNIQUE, customer_gmail text UNIQUE, customer_address text, customer_avatar BLOB)";
         sqLiteDatabase.execSQL(sqlCustomer);
+
+        String sqlTours = "Create table Tours (tour_id text PRIMARY KEY, tour_name text, tour_destination text, tour_time text, tour_price integer" +
+                ", tour_vehicle text, tour_departure text, tour_info text, FOREIGN KEY(tour_destination) REFERENCES Destinations(des_id) ON DELETE CASCADE)";
+        sqLiteDatabase.execSQL(sqlTours);
+
+        String sqlBooking = "Create table Booking (book_id text PRIMARY KEY, customer_id text, tour_id text" +
+                ", book_start_day text, booking_status text,book_note text, FOREIGN KEY(tour_id) REFERENCES Tours(tour_id) ON DELETE CASCADE)";
+        sqLiteDatabase.execSQL(sqlBooking);
     }
-    //p
-    // Customers (customer_code text, customer_name text, customer_numberphone text, customer_dayofbirth text, customer_gmail text, customer_address text)
-    // Provinces (province_code text, province_name text, province_regions text)
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
+        //sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
         onCreate(sqLiteDatabase);
     }
 }

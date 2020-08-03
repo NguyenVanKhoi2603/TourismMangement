@@ -7,4 +7,12 @@
         android:title="Search"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/icon_search"
+        android:title="Home"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="never" />
+
 </menu>

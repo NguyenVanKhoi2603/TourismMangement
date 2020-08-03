@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.232"
-        app:srcCompat="@drawable/loading_car" />
+        app:srcCompat="@drawable/loading" />
 
     <TextView
         android:id="@+id/textViewAuthor"
@@ -32,7 +32,8 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:text="By Vinh Hien, Van Khoi"
-        android:textSize="18dp"
+        android:textSize="20dp"
+        android:textColor="#000"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -66,6 +67,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewProgess" />
+
+    <ImageView
+        android:id="@+id/imgAriline"
+        android:layout_width="111dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginLeft="131dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginRight="132dp"
+        android:layout_marginBottom="94dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAuthor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:srcCompat="@drawable/flying_airliner" />
+
+    <ImageView
+        android:id="@+id/imagecloud"
+        android:layout_width="46dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="192dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAuthor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgAriline"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:srcCompat="@drawable/cloud" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -97,5 +97,44 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="s_cardViewMain">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="android:layout_marginLeft">18dp</item>
+    </style>
+
+
+    <style name="s_title_content_small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+    <style name="s_title_content_small_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+
+    <style name="s_title_content_small_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:background">#7a8b8b8b</item>
+
+
+    </style>
 
 </resources>

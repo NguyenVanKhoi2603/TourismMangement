@@ -9,20 +9,24 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#F4F4F4"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true"
+
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="158dp"
-            android:background="@color/colorbackgroupApp"
+
             android:padding="12dp">
 
             <ImageView
-                android:id="@+id/imageView_c"
+                android:id="@+id/imageViewRow_c"
                 android:layout_width="127dp"
                 android:layout_height="123dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background"></ImageView>
 
             <TextView
@@ -35,7 +39,7 @@
                 android:text="Nguyen Van Khoi"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRow_c"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -46,7 +50,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="7dp"
                 android:text="ID:"
-                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRow_c"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_name" />
 
             <TextView
@@ -67,7 +71,7 @@
                 android:layout_marginStart="13dp"
                 android:layout_marginLeft="13dp"
                 android:layout_marginTop="7dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRow_c"
                 app:layout_constraintTop_toBottomOf="@+id/tvicon"
                 app:srcCompat="@drawable/call_phone" />
 
@@ -90,7 +94,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="7dp"
                 android:text="@string/address"
-                app:layout_constraintStart_toEndOf="@+id/imageView_c"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRow_c"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRow_c_numberPhone" />
 
 

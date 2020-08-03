@@ -1,7 +1,12 @@
 package com.example.tourismmanagement.Model;
 
+import java.util.Arrays;
+
 public class CustomerModel {
     String c_code, c_fullname, c_sex, c_numberphone, c_dayofbirth, c_gmail, c_address;
+    byte[] imgavatar;
+
+
 
     public String getC_code() {
         return c_code;
@@ -59,6 +64,14 @@ public class CustomerModel {
         this.c_address = c_address;
     }
 
+    public byte[] getImgavatar() {
+        return imgavatar;
+    }
+
+    public void setImgavatar(byte[] imgavatar) {
+        this.imgavatar = imgavatar;
+    }
+
     @Override
     public String toString() {
         return "CustomerModel{" +
@@ -69,6 +82,7 @@ public class CustomerModel {
                 ", c_dayofbirth='" + c_dayofbirth + '\'' +
                 ", c_gmail='" + c_gmail + '\'' +
                 ", c_address='" + c_address + '\'' +
+                ", imgavatar=" + Arrays.toString(imgavatar) +
                 '}';
     }
 }
