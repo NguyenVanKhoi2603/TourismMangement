@@ -7,10 +7,6 @@
     android:orientation="vertical"
     tools:context=".InterFace.Province.AddProvinceActivity">
 
-    <TextView
-        style="@style/s_title_produce"
-        android:text="@string/update_province"></TextView>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edtLT_p_code_update"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -43,10 +39,15 @@
             android:hint="@string/province_name"></com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        style="@style/s_title_context"
-        android:layout_marginTop="15dp"
-        android:text="@string/religion"></TextView>
+    <LinearLayout style="@style/s_title_content_small">
+
+        <TextView
+            style="@style/s_title_content_small_text"
+            android:text="@string/religion" />
+
+        <View style="@style/s_title_content_small_view"></View>
+
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/spinner_p_religion_update"
@@ -63,7 +64,6 @@
         <Button
             android:id="@+id/btn_delete_province"
             style="@style/s_buttonBasic"
-            android:drawableLeft="@drawable/ic_delete"
             android:text="@string/delete"></Button>
 
         <Button

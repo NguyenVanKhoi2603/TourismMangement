@@ -18,10 +18,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tourismmanagement.DataBase.DBDestination;
+import com.example.tourismmanagement.DataBase.DBProvince;
+import com.example.tourismmanagement.DataBase.DBTours;
 import com.example.tourismmanagement.InterFace.Customer.UpdateCustomer;
 import com.example.tourismmanagement.InterFace.Destination.AddDestination;
 import com.example.tourismmanagement.Model.CustomerModel;
 import com.example.tourismmanagement.Model.DestinationModel;
+import com.example.tourismmanagement.Model.ProvinceModel;
+import com.example.tourismmanagement.Model.TourModel;
 import com.example.tourismmanagement.R;
 
 import java.util.ArrayList;
@@ -32,6 +36,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     private Activity activity;
     private ArrayList<DestinationModel> destinationModels;
     ArrayList<DestinationModel> destination_array;
+    ArrayList<ProvinceModel> provinceModels;
     public DestinationAdapter(Context context, ArrayList<DestinationModel> destinationModels) {
         this.context = context;
         this.destinationModels = destinationModels;
@@ -49,16 +54,10 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         final DestinationModel destination = destinationModels.get(position);
-
-        String t = destination.getDes_address();
-        String kq1 = "";
-        if (t.length() > 25){
-            kq1 = t.substring(0, 25) + "...";
-        } else {
-            kq1 = t;
-        }
         holder.txt_d_name.setText(destination.getDes_name());
-        holder.txt_d_province.setText(kq1);
+        DBProvince dbProvince  = new DBProvince(holder.itemView.getContext());
+        provinceModels = dbProvince.getDataByCode(destination.getDes_province());
+        holder.txt_d_province.setText(provinceModels.get(0).getP_name());
         String s = destination.getDes_description();
         String kq = "";
         if (s.length() > 80){

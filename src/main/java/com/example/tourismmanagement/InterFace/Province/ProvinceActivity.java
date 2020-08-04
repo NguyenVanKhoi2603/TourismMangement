@@ -95,7 +95,7 @@ public class ProvinceActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.action_menu, menu);
+        //getMenuInflater().inflate(R.menu.action_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

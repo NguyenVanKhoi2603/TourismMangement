@@ -51,11 +51,12 @@ public class AddCustomerActivity extends AppCompatActivity {
     ImageView imgavatar;
     TextInputEditText txt_c_BirthOfDay, txt_c_code, txt_c_name, txt_c_gmail, txt_c_phoneNumber, txt_c_address;
     TextInputLayout txtIL_c_code, txtIL_c_BirthOfDay, txtIL_c_name, txtIL_c_gmail, txtIL_c_phoneNumber, txtIL_c_address;
-    Calendar calendar;
+
+    DBCustomer dbCustomer;
     RadioButton rabMale, rabFemale, rabCustom;
     DatePickerDialog datePickerDialog;
     DatePickerDialog.OnDateSetListener onDateSetListener;
-    DBCustomer dbCustomer;
+    Calendar calendar;
     int day = 0;
     int month = 0;
     int year = 0;

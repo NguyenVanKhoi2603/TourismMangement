@@ -49,7 +49,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         final TourModel tourModel = tourModels.get(position);
         try {
-            String strPrice = String.valueOf(tourModel.getTour_price());
+            int strPrice = tourModel.getTour_price();
             String price = String.format("%,d", strPrice);
             holder.txt_t_price.setText(price);
         } catch (Exception ex) {

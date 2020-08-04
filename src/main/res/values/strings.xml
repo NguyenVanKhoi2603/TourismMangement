@@ -71,4 +71,6 @@
     <string name="info_tour">Thông tin về tuor</string>
     <string name="status">Trạng thái</string>
     <string name="day_start">Ngày bắt đầu</string>
+    <string name="price">Giá:</string>
+    <string name="booking_tour">Booking Tour</string>
 </resources>

@@ -106,9 +106,11 @@ public class AddDestination extends AppCompatActivity {
                 byte[] destination_img = data_destination.get(0).getDes_image();
                 Bitmap bitmap = BitmapFactory.decodeByteArray(destination_img, 0, destination_img.length);
                 imageV_destination.setImageBitmap(bitmap);
+
                 int i = 0;
                 i = getIndex(sp_province, data_destination.get(0).getDes_province());
                 sp_province.setSelection(i);
+
             } catch (Exception ex){
 
             }
@@ -149,6 +151,21 @@ public class AddDestination extends AppCompatActivity {
 
                     Intent intent = new Intent(AddDestination.this, Destination.class);
                     startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please enter the fields fully!!!", Toast.LENGTH_SHORT).show();
+                   // IL_d_code, IL_d_name, IL_d_address, IL_d_description;
+                    if (IET_d_code.equals("")){
+                        IET_d_code.setError("Please enter this field");
+                    }
+                    if (IET_d_address.equals("")){
+                        IET_d_address.setError("Please enter this field");
+                    }
+                    if (IET_d_description.equals("")){
+                        IET_d_description.setError("Please enter this field");
+                    }
+                    if (IET_d_name.equals("")){
+                        IET_d_name.setError("Please enter this field");
+                    }
                 }
             }
         });

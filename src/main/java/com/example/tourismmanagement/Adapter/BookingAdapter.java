@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tourismmanagement.DataBase.DBCustomer;
 import com.example.tourismmanagement.DataBase.DBTours;
+import com.example.tourismmanagement.InterFace.BookingTour.FormBookingTour;
 import com.example.tourismmanagement.InterFace.Customer.UpdateCustomer;
 import com.example.tourismmanagement.Model.BookingModel;
 import com.example.tourismmanagement.Model.CustomerModel;
@@ -62,25 +63,25 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
         holder.txt_bk_customer.setText(customerModels.get(0).getC_fullname());
         holder.txt_bk_dayStart.setText(booking.getBk_dayStart());
         if (booking.getBk_status().equals("0")){
-            holder.txt_bk_status.setText(booking.getBk_status());
+            holder.txt_bk_status.setText("Not started yet");
             holder.txt_bk_status.setTextColor(Color.YELLOW);
         } else {
             if (booking.getBk_status().equals("1")){
-                holder.txt_bk_status.setText(booking.getBk_status());
+                holder.txt_bk_status.setText("Happenning");
                 holder.txt_bk_status.setTextColor(Color.GREEN);
             } else {
-                holder.txt_bk_status.setText(booking.getBk_status());
+                holder.txt_bk_status.setText("Finished");
                 holder.txt_bk_status.setTextColor(Color.RED);
             }
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent((Activity)context, UpdateCustomer.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putString("bk_id", booking.getBk_id());
-//                intent.putExtras(bundle);
-//                ((Activity) context).startActivity(intent);
+                Intent intent = new Intent((Activity)context, FormBookingTour.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("booking_id", booking.getBk_id());
+                intent.putExtras(bundle);
+                ((Activity) context).startActivity(intent);
             }
         });
 

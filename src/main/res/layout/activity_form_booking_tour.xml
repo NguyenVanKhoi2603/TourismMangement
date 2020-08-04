@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +44,7 @@
                         android:id="@+id/img_bk_customer"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/man"></ImageView>
+                        android:src="@drawable/chooseimage"></ImageView>
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -53,7 +54,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="15"
                     android:fontFamily="@font/roboto_mediumitalic"
-                    android:text="Nguyen Van Khoi"
+                    android:text=""
                     android:textSize="17dp"
                     android:textStyle="bold"></TextView>
 
@@ -82,10 +83,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -98,7 +101,7 @@
                             android:id="@+id/img_bk_tour"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/vinhhalong"></ImageView>
+                            android:src="@drawable/chooseimage"></ImageView>
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -108,32 +111,48 @@
                         android:layout_gravity="center"
                         android:layout_weight="15"
                         android:fontFamily="@font/roboto_mediumitalic"
-                        android:text="Sai gon - Vinh Ha long"
+                        android:text=""
                         android:textSize="17dp"
                         android:textStyle="bold"></TextView>
 
                     <ImageButton
                         android:id="@+id/btn_bk_chooseTour"
-                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="#FF9800"
                         android:padding="10dp"
                         android:src="@drawable/information_point"></ImageButton>
                 </LinearLayout>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:text="99.00000"
-                    android:gravity="right"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:paddingRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/tv_bk_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
+
 
             </LinearLayout>
 
             <LinearLayout style="@style/s_title_content_small">
+
                 <TextView
                     style="@style/s_title_content_small_text"
                     android:text="@string/day_start" />
@@ -161,7 +180,7 @@
                     app:boxStrokeColor="@color/borderColor">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editText_t_birthOfDay"
+                        android:id="@+id/edt_t_daystart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="dd/mm/yyyy">

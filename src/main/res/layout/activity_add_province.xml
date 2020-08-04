@@ -9,9 +9,7 @@
 
 
 
-    <TextView
-        style="@style/s_title_produce"
-        android:text="@string/addprovince"></TextView>
+
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -47,10 +45,15 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_marginTop="15dp"
-        style="@style/s_title_context"
-        android:text="@string/religion"></TextView>
+    <LinearLayout style="@style/s_title_content_small">
+
+        <TextView
+            style="@style/s_title_content_small_text"
+            android:text="@string/religion" />
+
+        <View style="@style/s_title_content_small_view"></View>
+
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/spinner_p_religion"

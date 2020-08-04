@@ -61,7 +61,6 @@ public class AddTour extends AppCompatActivity {
     ArrayList<String> data_spinner = new ArrayList<>();
     ArrayList<DestinationModel> data_destination = new ArrayList<>();
     ArrayList<TourModel> data_tour = new ArrayList<>();
-    TourModel tourModel;
     DBTours dbTours;
     DBDestination dbDestination;
     final int REQUEST_CODE_GALLERY = 999;
@@ -88,6 +87,13 @@ public class AddTour extends AppCompatActivity {
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_GALLERY
                 );
+            }
+        });
+        btn_t_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddTour.this, ToursActivity.class);
+                startActivity(intent);
             }
         });
         if (!code.equals("")) {
@@ -291,13 +297,13 @@ public class AddTour extends AppCompatActivity {
             ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, data_spinner);
             sp_destination.setAdapter(adapter);
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), "loi", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void setControl() {
         btn_t_add = findViewById(R.id.btn_add_tour);
-        btn_t_cancel = findViewById(R.id.btn_c_cancel);
+        btn_t_cancel = findViewById(R.id.btn_cancel_tour);
         btn_t_delete = findViewById(R.id.btn_delete_tour);
         IET_t_id = findViewById(R.id.edt_t_code);
         IET_t_name = findViewById(R.id.edt_t_name);

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.tourismmanagement.InterFace.BookingTour.BookingTour;
 import com.example.tourismmanagement.InterFace.Customer.CustomerActivity;
 import com.example.tourismmanagement.InterFace.Destination.Destination;
 import com.example.tourismmanagement.InterFace.Province.ProvinceActivity;
@@ -22,7 +23,7 @@ import com.example.tourismmanagement.InterFace.Tour.ToursActivity;
 import com.example.tourismmanagement.R;
 
 public class MainActivity extends AppCompatActivity {
-    CardView cardViewbtn_tour, cardViewbtn_customer, cardViewbtn_province, cardViewbtn_tourismAtt;
+    CardView cardViewbtn_tour, cardViewbtn_customer, cardViewbtn_province, cardViewbtn_tourismAtt, cardViewbtn_booking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        cardViewbtn_booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BookingTour.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setControl() {
@@ -70,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         cardViewbtn_province = findViewById(R.id.cardView_province);
         cardViewbtn_tour = findViewById(R.id.cardView_tour);
         cardViewbtn_tourismAtt = findViewById(R.id.cardView_tourism_attr);
+        cardViewbtn_booking = findViewById(R.id.cardView_booking);
     }
 
     @Override
