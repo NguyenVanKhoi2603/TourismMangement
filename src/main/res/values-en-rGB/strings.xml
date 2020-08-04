@@ -70,4 +70,6 @@
     <string name="choose_destination">Choose destination</string>
     <string name="departure">Departure</string>
     <string name="info_tour">Infomation tour</string>
+    <string name="status">Status</string>
+    <string name="day_start">Day start</string>
 </resources>

@@ -3,6 +3,8 @@ package com.example.tourismmanagement.Adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +55,9 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.MyViewHolder> 
         } catch (Exception ex) {
             holder.txt_t_price.setText(tourModel.getTour_price() + "");
         }
+        byte[] customer_img = tourModel.getImg_destination();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(customer_img, 0, customer_img.length);
+        holder.imageViewTour.setImageBitmap(bitmap);
         holder.txt_t_title.setText(tourModel.getTour_name());
         holder.txt_t_date.setText(tourModel.getTour_time());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +86,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.MyViewHolder> 
             txt_t_title = itemView.findViewById(R.id.edtRow_t_title);
             txt_t_date = itemView.findViewById(R.id.edtRow_t_datetime);
             txt_t_price = itemView.findViewById(R.id.edtRow_t_price);
+            imageViewTour = itemView.findViewById(R.id.imgRow_t);
         }
     }
 

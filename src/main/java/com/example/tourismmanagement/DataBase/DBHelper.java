@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ", customer_dayofbirth text, customer_numberphone text UNIQUE, customer_gmail text UNIQUE, customer_address text, customer_avatar BLOB)";
         sqLiteDatabase.execSQL(sqlCustomer);
 
-        String sqlTours = "Create table Tours (tour_id text PRIMARY KEY, tour_name text, tour_destination text, tour_time text, tour_price integer" +
+        String sqlTours = "Create table Tours (tour_id text PRIMARY KEY, tour_name text, tour_destination text, img_destination BLOB,  tour_time text, tour_price integer" +
                 ", tour_vehicle text, tour_departure text, tour_info text, FOREIGN KEY(tour_destination) REFERENCES Destinations(des_id) ON DELETE CASCADE)";
         sqLiteDatabase.execSQL(sqlTours);
 

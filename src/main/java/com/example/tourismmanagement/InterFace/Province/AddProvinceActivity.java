@@ -40,7 +40,6 @@ public class AddProvinceActivity extends AppCompatActivity {
     public View layout;
     public Toast toast_mes;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +50,6 @@ public class AddProvinceActivity extends AppCompatActivity {
         setControl();
         toast_custom();
         setEvent();
-
-
     }
 
     public void showToastMessage(int duration) {

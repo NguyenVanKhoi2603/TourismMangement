@@ -23,6 +23,7 @@ public class DBTours {
         values.put("tour_id", tourModel.getTour_id());
         values.put("tour_name", tourModel.getTour_name());
         values.put("tour_destination", tourModel.getTour_destination());
+        values.put("img_destination", tourModel.getImg_destination());
         values.put("tour_time", tourModel.getTour_time());
         values.put("tour_price", tourModel.getTour_price());
         values.put("tour_vehicle", tourModel.getTour_vehicle());
@@ -44,11 +45,12 @@ public class DBTours {
             tourModel.setTour_id(cursor.getString(0));
             tourModel.setTour_name(cursor.getString(1));
             tourModel.setTour_destination(cursor.getString(2));
-            tourModel.setTour_time(cursor.getString(3));
-            tourModel.setTour_price(cursor.getInt(4));
-            tourModel.setTour_vehicle(cursor.getString(5));
-            tourModel.setTour_departure(cursor.getString(6));
-            tourModel.setTour_info(cursor.getString(7));
+            tourModel.setImg_destination(cursor.getBlob(3));
+            tourModel.setTour_time(cursor.getString(4));
+            tourModel.setTour_price(cursor.getInt(5));
+            tourModel.setTour_vehicle(cursor.getString(6));
+            tourModel.setTour_departure(cursor.getString(7));
+            tourModel.setTour_info(cursor.getString(8));
             data.add(tourModel);
         }
         while (cursor.moveToNext());
@@ -68,11 +70,12 @@ public class DBTours {
                 tourModel.setTour_id(cursor.getString(0));
                 tourModel.setTour_name(cursor.getString(1));
                 tourModel.setTour_destination(cursor.getString(2));
-                tourModel.setTour_time(cursor.getString(3));
-                tourModel.setTour_price(cursor.getInt(4));
-                tourModel.setTour_vehicle(cursor.getString(5));
-                tourModel.setTour_departure(cursor.getString(6));
-                tourModel.setTour_info(cursor.getString(7));
+                tourModel.setImg_destination(cursor.getBlob(3));
+                tourModel.setTour_time(cursor.getString(4));
+                tourModel.setTour_price(cursor.getInt(5));
+                tourModel.setTour_vehicle(cursor.getString(6));
+                tourModel.setTour_departure(cursor.getString(7));
+                tourModel.setTour_info(cursor.getString(8));
                 data.add(tourModel);
             }
             while (cursor.moveToNext());
@@ -94,6 +97,7 @@ public class DBTours {
         values.put("tour_id", tourModel.getTour_id());
         values.put("tour_name", tourModel.getTour_name());
         values.put("tour_destination", tourModel.getTour_destination());
+        values.put("img_destination", tourModel.getImg_destination());
         values.put("tour_time", tourModel.getTour_time());
         values.put("tour_price", tourModel.getTour_price());
         values.put("tour_vehicle", tourModel.getTour_vehicle());

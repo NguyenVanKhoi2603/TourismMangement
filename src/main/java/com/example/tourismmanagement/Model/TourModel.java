@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class TourModel {
     String tour_id, tour_name, tour_destination, tour_time, tour_vehicle, tour_departure, tour_info;
     int tour_price;
+    byte[] img_destination;
 
     public String getTour_id() {
         return tour_id;
@@ -70,6 +71,14 @@ public class TourModel {
         this.tour_price = tour_price;
     }
 
+    public byte[] getImg_destination() {
+        return img_destination;
+    }
+
+    public void setImg_destination(byte[] img_destination) {
+        this.img_destination = img_destination;
+    }
+
     @Override
     public String toString() {
         return "TourModel{" +
@@ -81,6 +90,7 @@ public class TourModel {
                 ", tour_departure='" + tour_departure + '\'' +
                 ", tour_info='" + tour_info + '\'' +
                 ", tour_price=" + tour_price +
+                ", img_destination=" + Arrays.toString(img_destination) +
                 '}';
     }
 }

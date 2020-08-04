@@ -69,4 +69,6 @@
     <string name="choose_destination">Chọn điểm đến</string>
     <string name="departure">Xuất phát</string>
     <string name="info_tour">Thông tin về tuor</string>
+    <string name="status">Trạng thái</string>
+    <string name="day_start">Ngày bắt đầu</string>
 </resources>

@@ -162,13 +162,7 @@ public class AddDestination extends AppCompatActivity {
             }
         });
     }
-    public static byte[] imageViewToByte(ImageView image) {
-        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        return byteArray;
-    }
+
     private void getDataByCode() {
         try {
             code = getIntent().getExtras().getString("d_code");
@@ -192,6 +186,14 @@ public class AddDestination extends AppCompatActivity {
         } catch (Exception ex) {
             Toast.makeText(getApplicationContext(), "loi", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

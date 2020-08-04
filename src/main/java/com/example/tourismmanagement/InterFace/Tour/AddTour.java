@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,6 +45,7 @@ import com.example.tourismmanagement.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -62,7 +64,8 @@ public class AddTour extends AppCompatActivity {
     TourModel tourModel;
     DBTours dbTours;
     DBDestination dbDestination;
-
+    final int REQUEST_CODE_GALLERY = 999;
+    ImageView imageViewTour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,16 @@ public class AddTour extends AppCompatActivity {
     private void setEvent() {
         getDataSpinner();
         getDataByCode();
+        imageViewTour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(
+                        AddTour.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY
+                );
+            }
+        });
         if (!code.equals("")) {
             try {
                 Log.d("tour", ": " + data_tour.get(0).toString());
@@ -86,7 +99,9 @@ public class AddTour extends AppCompatActivity {
                 IET_t_price.setText(data_tour.get(0).getTour_price() + "");
                 IET_t_departure.setText(data_tour.get(0).getTour_departure());
                 IET_t_info.setText(data_tour.get(0).getTour_info());
-
+                byte[] destination_img = data_tour.get(0).getImg_destination();
+                Bitmap bitmap = BitmapFactory.decodeByteArray(destination_img, 0, destination_img.length);
+                imageViewTour.setImageBitmap(bitmap);
                 dbDestination = new DBDestination(getApplicationContext());
                 data_destination = dbDestination.getDesByCode(data_tour.get(0).getTour_destination());
                 int index = 0;
@@ -161,6 +176,7 @@ public class AddTour extends AppCompatActivity {
                     tourModel.setTour_price(Integer.parseInt(IET_t_price.getText().toString()));
                     tourModel.setTour_departure(IET_t_departure.getText().toString());
                     tourModel.setTour_info(IET_t_info.getText().toString());
+                    tourModel.setImg_destination(imageViewToByte(imageViewTour));
                     if (cbBicycle.isChecked() == true) {
                         vehicle += "Bicycle_";
                     }
@@ -221,6 +237,50 @@ public class AddTour extends AppCompatActivity {
         }
     }
 
+    public static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if(requestCode == REQUEST_CODE_GALLERY){
+            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_CODE_GALLERY);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data != null){
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                imageViewTour.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
     private void getDataSpinner() {
         dbDestination = new DBDestination(getApplicationContext());
         try {
@@ -259,9 +319,8 @@ public class AddTour extends AppCompatActivity {
         cbBus = findViewById(R.id.chkBus);
         cbPlane = findViewById(R.id.chkAirPlane);
         cbTrain = findViewById(R.id.chkTrain);
-
+        imageViewTour = findViewById(R.id.img_t_image);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
